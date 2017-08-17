@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Paul Montero and Götz Christ
+  description: "Generates Let's Encrypt certificates using Certbot"
+  company: Stack Builder Inc.
+  issue_tracker_url: https://github.com/stackbuilders/ansible-role-certbot/issues
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+    - name: Debian
+      versions:
+        - jessie  # 8
+        - stretch # 9
+    - name: Ubuntu
+      versions:
+        - trusty  # 14.04
+        - xenial  # 16.04
+  galaxy_tags:
+    - certbot
+    - certificate
+    - encryption
+    - https
+    - letsencrypt
+    - networking
+    - system
+    - nginx
+    - ssl
+    - tls
+    - web

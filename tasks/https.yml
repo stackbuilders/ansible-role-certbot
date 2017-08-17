@@ -1,0 +1,61 @@
+---
+- name: Create certbot directory
+  file:
+    path: '{{ certbot_path }}'
+    state: directory
+
+- name: Download certbot-auto
+  get_url:
+    url: '{{ certbot_url }}'
+    dest: '{{ certbot_path }}/certbot-auto'
+    mode: a+x
+
+- name: Stop '{{ certbot_current_server }}'
+  service:
+    name: '{{ certbot_current_server }}'
+    state: stopped
+
+- name: Create TLS certificate for '{{ certbot_domains }}'
+  shell: echo 'y' | bash -c
+    '{{ certbot_path }}/certbot-auto
+    certonly
+    --standalone
+    --rsa-key-size {{ certbot_rsa_key_size }}
+    --email {{ certbot_email }}
+    --domains {{ certbot_domains }}
+    --agree-tos -n
+    '
+
+- name: Create symbolic links
+  file:
+    src: '{{ certbot_letsencrypt_path }}'
+    dest: '{{ certbot_certificates_path }}'
+    state: link
+
+- name: Check if dhparam.pem file exists
+  stat:
+    path: '{{ certbot_certificates_path }}/dhparam.pem'
+  register: dhparam
+
+- name: Generate dhparam.pem (for Perfect Forward Secrecy using Diffie-Hellman key exchange)
+  shell: 'openssl dhparam -out {{ certbot_certificates_path }}/dhparam.pem 2048'
+  when: dhparam.stat.exists == false
+
+- name: Start '{{ certbot_current_server }}'
+  service:
+    name: '{{ certbot_current_server }}'
+    state: started
+
+- name: Copy script to renew the certificates
+  template:
+    src: renew-certificates.sh.j2
+    dest: '{{ certbot_path }}/renew-certificates.sh'
+    mode: 0755
+
+- name: Create Cron job to run the script
+  cron:
+    name: Renew TLS certificates
+    month: '{{ certbot_cron_month }}'
+    hour: '{{ certbot_cron_hour }}'
+    minute: '{{ certbot_cron_minute }}'
+    job: '{{ certbot_path }}/renew-certificates.sh'

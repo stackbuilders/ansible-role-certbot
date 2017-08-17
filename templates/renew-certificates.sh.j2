@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Renew TLS certificate
+echo "$(date) Renewing certificates ------" >> {{ certbot_log }};
+su -c "
+    {{ certbot_path }}/certbot-auto \
+    renew \
+    --rsa-key-size {{ certbot_rsa_key_size }} \
+    --force-renewal \
+    --noninteractive \
+    --pre-hook 'systemctl stop {{ certbot_current_server }}' \
+    --post-hook 'systemctl start {{ certbot_current_server }}' \
+    &>> {{ certbot_log }};
+    "
