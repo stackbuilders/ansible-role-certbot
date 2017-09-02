@@ -1,6 +1,6 @@
 ---
 - include: https.yml
-  when: certbot_enable == true
+  when: certbot_enable
   tags:
     - certbot
     - https

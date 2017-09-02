@@ -39,7 +39,7 @@
 
 - name: Generate dhparam.pem (for Perfect Forward Secrecy using Diffie-Hellman key exchange)
   shell: 'openssl dhparam -out {{ certbot_certificates_path }}/dhparam.pem 2048'
-  when: dhparam.stat.exists == false
+  when: not dhparam.stat.exists
 
 - name: Start '{{ certbot_current_server }}'
   service:
