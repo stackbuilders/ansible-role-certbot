@@ -19,17 +19,13 @@ Getting started
 ------------
 
 You need to define the following variables:
-- `{{ certbot_domains }}` is a comma-separated string of the domains you wish to create a certificate for. e.g.: 'myexample.com,myexample.net'
-- `{{ certbot_email }}` is the notifications address that Certbot will use to send expiration notices.
+- `{{ certbot_domains }}` is a comma-separated string of the domains you wish to create a certificate for. e.g.: `'myexample.com,myexample.net'`
+- `{{ certbot_email }}` is the notifications email address that Certbot will use to send expiration notices.
 
 Role variables
 --------------
 
-These are the variables that are passed with a brief description. For all default variables, take a look at `defaults/main.yml`
-
-- `certbot_certificates_path`: The path where a symlink from the Let's Encrypt certificate(s) folder to the current server will be created.
-- `certbot_current_server`: The current server which will use the certificate(s).
-- ...
+For all default variables, take a look at [defaults/main.yml](defaults/main.yml)
 
 Example playbook
 ----------------
