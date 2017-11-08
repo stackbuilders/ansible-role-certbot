@@ -9,9 +9,9 @@ certbot_log: '/var/log/certbot-certificate-renewal.log'
 
 # Certificates generation and installation.
 certbot_rsa_key_size: 4096
-certbot_letsencrypt_path: '/etc/letsencrypt/live'
-certbot_certificates_path: '/etc/nginx/ssl'
 certbot_current_server: nginx
+certbot_letsencrypt_path: '/etc/letsencrypt/live'
+certbot_certificates_path: '/etc/{{ certbot_current_server }}/ssl'
 
 # Certificates renewal time settings for Cron job.
 certbot_cron_month: '*/2'
