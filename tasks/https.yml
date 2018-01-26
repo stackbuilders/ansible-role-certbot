@@ -10,10 +10,16 @@
     dest: '{{ certbot_path }}/certbot-auto'
     mode: a+x
 
+- name: Check '{{ certbot_current_server }}' status
+  systemd:
+    name: '{{ certbot_current_server }}'
+  register: current_server
+
 - name: Stop '{{ certbot_current_server }}'
   service:
     name: '{{ certbot_current_server }}'
     state: stopped
+  when: not current_server.status.ActiveState == 'inactive'
 
 - name: Create TLS certificate for '{{ certbot_domains }}'
   shell: echo 'y' | bash -c
@@ -45,6 +51,7 @@
   service:
     name: '{{ certbot_current_server }}'
     state: started
+  when: not current_server.status.ActiveState == 'inactive'
 
 - name: Copy script to renew the certificates
   template:
