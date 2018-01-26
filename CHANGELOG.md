@@ -1,7 +1,11 @@
 # CHANGELOG
 
 ## MASTER
+
+## 0.1.3
 * Add CHANGELOG.md
+* Check cerbot_current_server status before starting or stoping it,
+  to determine if it's installed.
 
 ## 0.1.2
 * Small update to defaults variable
