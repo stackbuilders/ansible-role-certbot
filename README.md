@@ -1,5 +1,6 @@
 Certbot from Let's Encrypt
 =========
+[![Ansible Galaxy](https://img.shields.io/badge/role-stackbuilders.certbot-blue.svg)](https://galaxy.ansible.com/stackbuilders/certbot/)
 
 This Ansible role creates one or more Let's Encrypt certificates using Certbot.
 
