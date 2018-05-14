@@ -2,6 +2,9 @@
 
 ## MASTER
 
+## 0.1.4
+* Make sure parent folder exists before creating symlink.
+
 ## 0.1.3
 * Add CHANGELOG.md
 * Check cerbot_current_server status before starting or stoping it,

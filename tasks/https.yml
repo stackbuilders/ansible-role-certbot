@@ -32,6 +32,13 @@
     --agree-tos -n
     '
 
+- name: Create '{{ certbot_current_server }}' folder
+  file:
+    path: '/etc/{{ certbot_current_server }}'
+    owner: root
+    mode: 0755
+    state: directory
+
 - name: Create symbolic links
   file:
     src: '{{ certbot_letsencrypt_path }}'
