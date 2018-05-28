@@ -2,6 +2,9 @@
 
 ## MASTER
 
+## 0.1.5
+* Change the cron for running every 1 month to renew and the renew command without force
+
 ## 0.1.4
 * Make sure parent folder exists before creating symlink.
 
