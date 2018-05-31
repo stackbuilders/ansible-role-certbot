@@ -6,7 +6,7 @@ su -c "
     {{ certbot_path }}/certbot-auto \
     renew \
     --rsa-key-size {{ certbot_rsa_key_size }} \
-    --force-renewal \
+    --no-self-upgrade \
     --noninteractive \
     --pre-hook 'systemctl stop {{ certbot_current_server }}' \
     --post-hook 'systemctl start {{ certbot_current_server }}' \
