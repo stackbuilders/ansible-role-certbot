@@ -1,4 +1,9 @@
-Certbot from Let's Encrypt
+**This repository is no longer maintained by Stack Builders. If you are looking
+for other alternatives consider using
+[geerlingguy.certbot](https://github.com/geerlingguy/ansible-role-certbot) role
+instead.**
+
+DEPRECATED - Certbot from Let's Encrypt
 =========
 [![Ansible Galaxy](https://img.shields.io/badge/role-stackbuilders.certbot-blue.svg)](https://galaxy.ansible.com/stackbuilders/certbot/)
 
