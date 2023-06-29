@@ -1,7 +1,4 @@
-**This repository is no longer maintained by Stack Builders. If you are looking
-for other alternatives consider using
-[geerlingguy.certbot](https://github.com/geerlingguy/ansible-role-certbot) role
-instead.**
+**Warning:** This library has been deprecated and is no longer maintained. It will not receive any further security patches, features, or bug fixes and is preserved here at GitHub for archival purposes. If you want to use it, we suggest forking the repository and auditing the codebase before use. For more information contact us at info@stackbuilders.com.
 
 DEPRECATED - Certbot from Let's Encrypt
 =========
