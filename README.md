@@ -1,5 +1,8 @@
 **Warning:** This library has been deprecated and is no longer maintained. It will not receive any further security patches, features, or bug fixes and is preserved here at GitHub for archival purposes. If you want to use it, we suggest forking the repository and auditing the codebase before use. For more information contact us at info@stackbuilders.com.
 
+**Recommended Roles:**
+- https://github.com/geerlingguy/ansible-role-certbot
+
 DEPRECATED - Certbot from Let's Encrypt
 =========
 [![Ansible Galaxy](https://img.shields.io/badge/role-stackbuilders.certbot-blue.svg)](https://galaxy.ansible.com/stackbuilders/certbot/)
